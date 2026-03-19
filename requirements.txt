@@ -1,0 +1,42 @@
+# requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+# Federated LoRA fine-tuning of DistilBERT on IMDb with Flower
+# Python 3.10 | Windows / Linux / macOS (CPU-compatible)
+#
+# Install with:
+#   pip install -r requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── PyTorch (CPU) ─────────────────────────────────────────────────────────────
+# If you have a CUDA GPU, replace with the appropriate CUDA wheel from
+# https://pytorch.org/get-started/locally/
+torch==2.2.2
+torchvision==0.17.2        # pulled in transitively; pin for reproducibility
+
+# ── Transformers ecosystem ────────────────────────────────────────────────────
+transformers==4.40.2
+tokenizers==0.19.1          # fast Rust tokenizer used by DistilBertTokenizerFast
+safetensors==0.4.3          # for faster/safer weight loading
+
+# ── PEFT (LoRA) ───────────────────────────────────────────────────────────────
+peft==0.11.1
+
+# ── Datasets & Evaluate ───────────────────────────────────────────────────────
+datasets==2.19.2
+evaluate==0.4.2
+huggingface-hub==0.23.4
+fsspec==2024.3.1             # required by datasets
+
+# ── Flower ────────────────────────────────────────────────────────────────────
+flwr==1.8.0
+
+# ── Scientific Python stack ───────────────────────────────────────────────────
+numpy==1.26.4
+scikit-learn==1.4.2          # used by evaluate's F1 backend
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+tqdm==4.66.4
+requests==2.32.2
+packaging==24.1
+filelock==3.14.0
+regex==2024.5.15
